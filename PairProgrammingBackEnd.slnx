@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PairProgrammingBackEnd/PairProgrammingBackEnd.csproj" />
+  <Project Path="RecordControllers/RecordControllers.csproj" />
+</Solution>

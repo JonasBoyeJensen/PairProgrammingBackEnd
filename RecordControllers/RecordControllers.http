@@ -1,0 +1,6 @@
+@RecordControllers_HostAddress = http://localhost:5296
+
+GET {{RecordControllers_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
