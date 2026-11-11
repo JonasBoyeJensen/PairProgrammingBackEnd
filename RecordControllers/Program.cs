@@ -27,6 +27,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseCors(AllowedPolicy);
+
 app.UseAuthorization();
 
 app.MapControllers();
