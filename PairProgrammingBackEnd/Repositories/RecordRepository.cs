@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PairProgrammingBackEnd.Repositories;
 
-public class RecordRepostory
+public class RecordRepostory : IRecordRepostory
 {
     private List<IRecord> _records;
 
