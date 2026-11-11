@@ -1,20 +1,11 @@
 using PairProgrammingBackEnd;
 using PairProgrammingBackEnd.Repositories;
-using Microsoft.AspNetCore;
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-
-//Swagger Implementation
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
 builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<IRecordRepostory>(new RecordRepostory());
@@ -35,9 +26,6 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
-app.UseSwagger();
-app.UseSwaggerUI();
 
 app.UseCors(AllowedPolicy);
 
