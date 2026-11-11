@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PairProgrammingBackEnd.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +9,13 @@ namespace RecordControllers.Controllers
     [ApiController]
     public class RecordController : ControllerBase
     {
+        public IRecordRepostory Repo { get; set; }
+
+
+        public RecordController(IRecordRepostory repo) { 
+            Repo = repo;
+        }
+
         // GET: api/<RecordController>
         [HttpGet]
         public IEnumerable<string> Get()

@@ -2,6 +2,17 @@ using PairProgrammingBackEnd;
 using PairProgrammingBackEnd.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+//Cors implementation
+const string AllowedPolicy = "AllowAll";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(AllowedPolicy, policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -12,13 +23,7 @@ builder.Services.AddSingleton<IRecordRepostory>(new RecordRepostory());
 
 var app = builder.Build();
 
-//Cors implementation
-const string AllowedPolicy = "AllowAll";
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(AllowedPolicy, policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-});
 
 
 // Configure the HTTP request pipeline.
