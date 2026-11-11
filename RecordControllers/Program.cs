@@ -12,6 +12,15 @@ builder.Services.AddSingleton<IRecordRepostory>(new RecordRepostory());
 
 var app = builder.Build();
 
+//Cors implementation
+const string AllowedPolicy = "AllowAll";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(AllowedPolicy, policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
