@@ -19,9 +19,31 @@ public class RecordRepository : IRecordRepository
         AddRecord(new Record { Title = "Thriller", Artist = "Michael Jackson", Duration = 2581, PublicationYear = 1982 });
     }
 
-    public IEnumerable<IRecord> GetAllRecords()
+    public IEnumerable<IRecord> GetAllRecords(string? title = null, string? artist = null, int? duration = null, int? publicationYear = null)
     {
-        return new List<IRecord>(_records);
+        IEnumerable<IRecord> records = _records.OrderBy(r => r.Id);
+
+        if (title != null)
+        {
+            records = records.Where(r => r.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
+        }
+
+        if (artist != null)
+        {
+            records = records.Where(r => r.Artist.Contains(artist, StringComparison.OrdinalIgnoreCase));
+        }
+
+        if (duration != null)
+        {
+            records = records.Where(r => r.Duration == duration);
+        }
+
+        if (publicationYear != null)
+        {
+            records = records.Where(r => r.PublicationYear == publicationYear);
+        }
+
+        return records;
     }
 
     public void AddRecord(IRecord record)
