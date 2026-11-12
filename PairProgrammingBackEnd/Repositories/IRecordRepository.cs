@@ -1,6 +1,6 @@
 ﻿namespace PairProgrammingBackEnd.Repositories
 {
-    public interface IRecordRepostory
+    public interface IRecordRepository
     {
         IEnumerable<IRecord> GetAllRecords();
     }

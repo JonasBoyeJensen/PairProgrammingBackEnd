@@ -6,7 +6,7 @@
         int Duration { get; set; }
         int Id { get; set; }
         int PublicationYear { get; set; }
-        string Titel { get; set; }
+        string Title { get; set; }
 
         string ToString();
     }

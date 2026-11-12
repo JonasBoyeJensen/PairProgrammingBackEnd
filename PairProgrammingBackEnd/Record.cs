@@ -7,15 +7,15 @@ namespace PairProgrammingBackEnd;
 public class Record : IRecord
 {
     public int Id { get; set; }
-    public string Titel { get; set; }
+    public string Title { get; set; }
     public string Artist { get; set; }
     public int Duration { get; set; }
     public int PublicationYear { get; set; }
 
-    public Record(int id, string titel, string artist, int duration, int publicationYear)
+    public Record(int id, string title, string artist, int duration, int publicationYear)
     {
         Id = id;
-        Titel = titel;
+        Title = title;
         Artist = artist;
         Duration = duration;
         PublicationYear = publicationYear;
@@ -27,7 +27,7 @@ public class Record : IRecord
 
     public override string ToString()
     {
-        return $"Id: {Id}, Titel: {Titel}, Artist: {Artist}, Duration: {Duration}, PublicationYear: {PublicationYear}";
+        return $"Id: {Id}, Title: {Title}, Artist: {Artist}, Duration: {Duration}, PublicationYear: {PublicationYear}";
     }
 }
 
