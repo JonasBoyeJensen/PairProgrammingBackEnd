@@ -16,6 +16,11 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// Swagger/OpenAPI
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -23,7 +28,8 @@ builder.Services.AddSingleton<IRecordRepository>(new RecordRepository());
 
 var app = builder.Build();
 
-
+app.UseSwagger();
+app.UseSwaggerUI();
 
 
 // Configure the HTTP request pipeline.
