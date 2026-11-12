@@ -18,10 +18,18 @@ namespace RecordControllers.Controllers
         }
 
         // GET: api/<RecordController>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet]
-        public IEnumerable<IRecord> Get()
+        public ActionResult<IEnumerable<IRecord>> Get()
         {
-            return Repo.GetAllRecords();
+            IEnumerable<IRecord> records = Repo.GetAllRecords();
+
+            if (records.Count() == 0)
+            {
+                return NoContent();
+            }
+            return Ok(records);
         }
 
         // GET api/<RecordController>/5
