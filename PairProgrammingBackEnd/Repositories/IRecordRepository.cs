@@ -2,6 +2,6 @@
 {
     public interface IRecordRepository
     {
-        IEnumerable<IRecord> GetAllRecords();
+        IEnumerable<IRecord> GetAllRecords(string? title = null, string? artist = null, int? duration = null, int? publicationYear = null);
     }
 }
