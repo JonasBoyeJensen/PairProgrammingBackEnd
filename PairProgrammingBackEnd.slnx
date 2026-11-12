@@ -1,5 +1,5 @@
 <Solution>
+  <Project Path="PairProgrammingBackEnd.UnitTests/PairProgrammingBackEnd.UnitTests.csproj" Id="2f9a9eeb-8f0c-4bdc-b845-2cb631835949" />
   <Project Path="PairProgrammingBackEnd/PairProgrammingBackEnd.csproj" />
   <Project Path="RecordControllers/RecordControllers.csproj" />
-  <Project Path="UnitTestProject/UnitTestProject.csproj" Id="dfce4949-ef9f-4098-9067-78cad557b14f" />
 </Solution>

@@ -21,7 +21,7 @@ public class RecordRepository : IRecordRepository
 
     public IEnumerable<IRecord> GetAllRecords()
     {
-        return _records;
+        return new List<IRecord>(_records);
     }
 
     public void AddRecord(IRecord record)
