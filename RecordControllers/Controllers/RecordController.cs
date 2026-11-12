@@ -9,10 +9,10 @@ namespace RecordControllers.Controllers
     [ApiController]
     public class RecordController : ControllerBase
     {
-        public IRecordRepostory Repo { get; set; }
+        public IRecordRepository Repo { get; set; }
 
 
-        public RecordController(IRecordRepostory repo) { 
+        public RecordController(IRecordRepository repo) { 
             Repo = repo;
         }
 
