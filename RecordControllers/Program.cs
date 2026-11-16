@@ -51,6 +51,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<IRecordRepository>(new RecordRepository());
+builder.Services.AddSingleton<IAuthenticator>(new Authenticator());
 
 var app = builder.Build();
 

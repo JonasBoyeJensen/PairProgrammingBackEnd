@@ -10,7 +10,7 @@ public enum Role
     User
 }
 
-public class Authenticator
+public class Authenticator : IAuthenticator
 {
     public Dictionary<string, LoginInformation> Users { get; set; } = new Dictionary<string, LoginInformation> { };
 
