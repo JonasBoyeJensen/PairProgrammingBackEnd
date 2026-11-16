@@ -21,9 +21,16 @@ namespace RecordControllers.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet]
-        public ActionResult<IEnumerable<IRecord>> Get()
+        public ActionResult<IEnumerable<IRecord>> Get(
+            [FromQuery] string? title = null, 
+            [FromQuery] string? artist = null, 
+            [FromQuery] int? duration = null, 
+            [FromQuery] int? publicationYear = null
+            )
         {
-            IEnumerable<IRecord> records = Repo.GetAllRecords();
+            
+            
+            IEnumerable<IRecord> records = Repo.GetAllRecords(title, artist, duration, publicationYear);
 
             if (records.Count() == 0)
             {
