@@ -23,7 +23,7 @@ public class AuthController : ControllerBase
     }
 
     // POST api/<AuthController>
-    [HttpPost]
+    [HttpPost("login")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public IActionResult Post([FromBody] LoginRequest request)
@@ -35,7 +35,7 @@ public class AuthController : ControllerBase
         }
 
         var token = GenerateJWTToken(request.Username, role.Value);
-        return Ok(new { Token = token });
+        return Ok(new { Token = token, Username = request.Username });
     }
 
     private string GenerateJWTToken(string username, Role role)
