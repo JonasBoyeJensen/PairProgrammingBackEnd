@@ -62,9 +62,17 @@ public class RecordController : ControllerBase
     }
 
     // DELETE api/<RecordController>/5
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public ActionResult<IRecord> Delete(int id)
     {
+        IRecord? record = Repo.DeleteRecord(id);
+        if (record == null)
+        {
+            return NotFound();
+        }
+        return Ok(record);
     }
 
     

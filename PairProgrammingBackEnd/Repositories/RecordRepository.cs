@@ -55,7 +55,7 @@ public class RecordRepository : IRecordRepository
 
     public IRecord? GetById(int id)
     {
-        IRecord record = _records[id];
+        IRecord? record = _records.FirstOrDefault(x => x.Id == id);
         return record;
     }
 
