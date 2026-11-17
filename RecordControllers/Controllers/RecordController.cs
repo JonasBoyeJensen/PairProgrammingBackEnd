@@ -49,11 +49,10 @@ public class RecordController : ControllerBase
     // POST api/<RecordController>
     [ProducesResponseType(StatusCodes.Status201Created)]
     [HttpPost]
-    public IRecord Post([FromBody] RecordDTO dto)
+    public ActionResult<IRecord> Post([FromBody] RecordDTO dto)
     {
         IRecord record = Repo.AddRecord(new Record(0, dto.Title, dto.Artist, dto.Duration, dto.PublicationYear));
-        return record;
-
+        return Created($"api/Record/{record.Id}",record);
     }
 
     // PUT api/<RecordController>/5
