@@ -46,10 +46,11 @@ public class RecordRepository : IRecordRepository
         return records;
     }
 
-    public void AddRecord(IRecord record)
+    public IRecord AddRecord(IRecord record)
     {
         record.Id = _nextId++;
         _records.Add(record);
+        return record;
     }
 
     public IRecord? GetById(int id)
