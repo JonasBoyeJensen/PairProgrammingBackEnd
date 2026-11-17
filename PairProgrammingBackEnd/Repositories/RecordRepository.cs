@@ -51,4 +51,21 @@ public class RecordRepository : IRecordRepository
         record.Id = _nextId++;
         _records.Add(record);
     }
+
+    public IRecord? GetById(int id)
+    {
+        IRecord record = _records[id];
+        return record;
+    }
+
+    public IRecord? DeleteRecord(int id)
+    {
+        IRecord? record = GetById(id);
+        if (record == null)
+        {
+            return null;
+        }
+        _records.Remove(record);
+        return record;
+    }
 }
